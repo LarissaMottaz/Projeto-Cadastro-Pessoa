@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulário de solicitação</title>
+</head>
+<body>
+  <h1>Formulário de solicitação</h1>
+
+  <form action="/forms/request" method="post">
+    <div>
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
+    </div>
+
+    <div>
+      <label for="assunto">Assunto:</label>
+      <input type="text" id="assunto" name="assunto" required>
+    </div>
+
+    <div>
+      <label for="descricao">Descrição:</label>
+      <textarea id="descricao" name="descricao" rows="5"></textarea>
+    </div>
+
+    <div>
+      <label for="data">Data:</label>
+      <input type="date" id="data" name="data">
+    </div>
+
+    <button type="submit">Salvar solicitação</button>
+  </form>
+
+  <p><a href="/">Voltar para a página inicial</a></p>
+</body>
+</html>

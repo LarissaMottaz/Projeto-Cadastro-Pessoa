@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Registros salvos</title>
+</head>
+<body>
+  <h1>Registros salvos</h1>
+
+  {{#if files.length}}
+    <ul>
+      {{#each files}}
+        <li>
+          <a href="/records/{{this}}">{{this}}</a>
+        </li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <p>Nenhum registro encontrado.</p>
+  {{/if}}
+
+  <p><a href="/">Voltar para a página inicial</a></p>
+</body>
+</html>
