@@ -6,6 +6,15 @@ import * as path from 'path';
 export class FormService {
   private readonly basePath = path.join(process.cwd(), 'data', 'forms');
 
+  constructor() {
+    console.log('FormService initialized. Current CWD:', process.cwd());
+    console.log('Base Path:', this.basePath);
+    if (!fs.existsSync(this.basePath)) {
+      console.log('Creating directory:', this.basePath);
+      fs.mkdirSync(this.basePath, { recursive: true });
+    }
+  }
+
   savePersonForm(data: { nome: string; email: string; telefone: string; cidade: string }) {
     const id = Date.now().toString();
     const filename = `person-${id}.txt`;
@@ -39,11 +48,16 @@ Data: ${data.data}
   }
 
   listRecords() {
+    console.log('Listing records execution - CWD:', process.cwd());
+    console.log('Target Base Path:', this.basePath);
     if (!fs.existsSync(this.basePath)) {
+      console.log('Base Path does NOT exist:', this.basePath);
       return [];
     }
 
-    return fs.readdirSync(this.basePath).filter((file) => file.endsWith('.txt'));
+    const files = fs.readdirSync(this.basePath).filter((file) => file.endsWith('.txt'));
+    console.log('Files found:', files);
+    return files;
   }
 
   readRecord(filename: string) {
